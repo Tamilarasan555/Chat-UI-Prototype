@@ -1,0 +1,97 @@
+.chat-input-container {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 30px; /* Increased roundness */
+  padding: 5px 10px 5px 15px; /* Adjusted padding: top/bottom left right */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Adjusted shadow */
+  width: auto; /* Allow content to influence width */
+  max-width: 550px; /* Set a fixed max-width closer to reference */
+  margin: 20px auto;
+  gap: 10px; /* Adjusted gap */
+}
+
+.chat-input-field {
+  flex-grow: 1;
+  border: none;
+  outline: none;
+  font-size: 0.95rem; /* Slightly smaller font */
+  background-color: transparent;
+  min-width: 100px;
+  padding: 8px 0; /* Vertical padding for input */
+  color: #333;
+}
+
+.chat-input-field::placeholder {
+  color: #999; /* Slightly darker placeholder */
+}
+
+.chat-input-buttons {
+  display: flex;
+  align-items: center;
+  gap: 6px; /* Adjusted gap */
+  border-left: none; /* Removed separator line */
+  padding-left: 0;
+}
+
+.chat-button {
+  background-color: #f1f1f1; /* Slightly lighter grey */
+  border: none; /* Removed border */
+  border-radius: 20px; /* Pill shape */
+  padding: 6px 12px; /* Adjusted padding */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.85rem; /* Slightly smaller font */
+  color: #444; /* Slightly darker text */
+  transition: background-color 0.2s ease;
+  white-space: nowrap; /* Prevent text wrapping */
+}
+
+.chat-button:hover {
+  background-color: #e7e7e7; /* Slightly darker hover */
+}
+
+/* Specific styles for '+' and '...' buttons */
+.chat-button.icon-button.plus-button,
+.chat-button.icon-button.more-button {
+  border-radius: 50%; /* Circular */
+  width: 28px; /* Fixed size */
+  height: 28px; /* Fixed size */
+  padding: 0; /* Remove padding */
+  justify-content: center; /* Center content */
+  font-size: 1.1rem; /* Adjust icon size if needed */
+}
+
+.mic-button {
+  background-color: #000000;
+  color: #ffffff;
+  border: none;
+  border-radius: 50%;
+  width: 32px; /* Slightly larger */
+  height: 32px; /* Slightly larger */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin-left: 8px; /* Adjusted margin */
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.mic-button:hover {
+  background-color: #333;
+}
+
+/* Basic icon styling - replace spans with actual SVG/icon font later */
+.chat-button span {
+  display: inline-block;
+  line-height: 1;
+  /* Consider adding vertical-align: middle if needed */
+}
+
+/* Ensure icons inside buttons align well */
+.chat-button > span:first-child {
+  font-size: 1rem; /* Adjust icon size */
+}
