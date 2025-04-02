@@ -7,30 +7,132 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #ffffff; /* White background */
-  display: flex;
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
-  min-height: 100vh; /* Full viewport height */
 }
 
 #root {
   width: 100%;
+  min-height: 100vh; /* Ensure root takes full height */
+  display: flex; /* Use flex for layout */
+}
+
+
+/* New layout container for sidebar and main content */
+.app-layout {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 100%;
+  min-height: 100vh;
 }
 
 .app-container {
+  position: relative; /* Establish positioning context for absolute children */
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px; /* Space between title and input */
+  flex-direction: column; /* Stack response area and input section */
+  justify-content: center; /* Center content vertically by default */
+  width: 100%;
+  max-width: 900px; /* Adjust max-width as needed */
+  margin: 0 auto; /* Center the container horizontally */
+  min-height: 100vh; /* Ensure container takes full viewport height */
+  flex-grow: 1; /* Allow app-container to take remaining space */
+  /* margin: 0 auto; on line 32 handles centering */
+  /* min-height: 100vh; is handled by app-layout */
+  min-height: auto; /* Override previous min-height */
+  padding: 20px; /* Add padding */
+  box-sizing: border-box;
 }
 
-/* Style for the main title */
-.app-container h1 {
-  font-size: 1.8rem; /* Adjust size as needed */
-  font-weight: 500; /* Medium weight */
+/* When content is present, push to bottom */
+.app-container.has-content {
+  justify-content: flex-end;
+}
+
+/* Area for displaying response, errors, loading, or initial content */
+.response-display-area {
+  /* Remove flex-grow: 0; */
+  width: 100%;
+  padding-bottom: 120px; /* Increased padding to prevent overlap with absolute input */
+  overflow-y: auto; /* Allow scrolling if content overflows */
+  text-align: left;
+  /* Remove transition */
+  /* Add flex properties to align internal content to bottom */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+/* Allow response area to grow when content is present */
+.app-container.has-content .response-display-area {
+  flex-grow: 1;
+}
+
+/* Styling for the actual response content */
+.response-content {
+  padding: 15px;
+  border: 1px solid #e8e8e8;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-sizing: border-box;
+}
+
+.response-content pre {
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: #444;
+}
+
+/* Placeholder for initial state */
+.placeholder-content {
+  color: #aaa;
+  text-align: center; /* Keep text centered if any is added */
+  /* padding-top: 20vh; */ /* Removed: Centering handled by flex container */
+  padding-top: 20px; /* Optional: Add some minimal top padding if needed */
+}
+
+/* Section containing the heading and chat input - Positioned absolutely */
+.input-section {
+  position: absolute;
+  bottom: 20px; /* Align with app-container padding */
+  left: 20px;  /* Align with app-container padding */
+  right: 20px; /* Align with app-container padding */
+  width: calc(100% - 40px); /* Span width within padding */
+  padding-top: 10px;
+  background-color: #ffffff; /* Add background to prevent transparency */
+  box-sizing: border-box;
+  /* flex-shrink: 0; No longer needed for absolute positioning */
+}
+
+/* Style for the main prompt heading */
+.app-container .main-prompt-heading {
+  font-size: 1.5rem;
+  font-weight: 600;
   color: #333;
-  margin: 0; /* Remove default margins */
+  margin: 0 0 15px 0; /* Space below heading */
+  text-align: center;
+}
+
+/* Styling for the loading indicator */
+.loading-indicator {
+  margin-top: 10px;
+  color: #888;
+  font-style: italic;
+  text-align: center; /* Center loading text */
+}
+
+/* Styling for error messages */
+.error-message {
+  color: #d9534f;
+  background-color: #f2dede;
+  border: 1px solid #ebccd1;
+  padding: 10px 15px;
+  border-radius: 4px;
+  width: 100%;
+  text-align: center;
+  box-sizing: border-box;
+  margin-bottom: 15px; /* Space below error */
+}
+
+/* Ensure ChatInput component takes full width within its section */
+.input-section .chat-input-container {
+    max-width: 100%; /* Override the max-width set in ChatInput.css */
+    margin-left: 0;
+    margin-right: 0;
 }

@@ -1,0 +1,98 @@
+/* Overlay covering the whole screen */
+.settings-overlay {
+  position: fixed; /* Sit on top of everything */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+  display: flex;
+  align-items: center; /* Center panel vertically */
+  justify-content: center; /* Center panel horizontally */
+  z-index: 1000; /* Ensure it's above other content */
+}
+
+/* The actual settings panel */
+.settings-panel {
+  background-color: #ffffff;
+  padding: 20px 25px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 500px; /* Max width of the panel */
+  max-height: 80vh; /* Max height */
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+/* Header within the panel */
+.settings-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+}
+
+.settings-header h2 {
+  margin: 0;
+  font-size: 1.4em;
+  color: #333;
+}
+
+/* Close button styling */
+.close-button {
+  background: none;
+  border: none;
+  font-size: 2em;
+  font-weight: bold;
+  color: #888;
+  cursor: pointer;
+  padding: 0 5px;
+  line-height: 1;
+}
+
+.close-button:hover {
+  color: #333;
+}
+
+/* Container for the settings options */
+.settings-content {
+  overflow-y: auto; /* Allow scrolling if settings exceed max height */
+  flex-grow: 1;
+}
+
+/* Individual setting item */
+.setting-item {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Space out label and control */
+  gap: 15px;
+}
+
+.setting-item label {
+  font-weight: 500;
+  color: #555;
+  flex-shrink: 0; /* Prevent label from shrinking */
+}
+
+.setting-item select,
+.setting-item button {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0.95em;
+}
+
+.setting-item button {
+  background-color: #f0f0f0;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.setting-item button:hover {
+  background-color: #e0e0e0;
+}

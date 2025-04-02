@@ -1,0 +1,5 @@
+fastapi
+uvicorn[standard]
+pydantic-ai
+python-dotenv
+# google-genai (Using pydantic-ai's GeminiModel instead)

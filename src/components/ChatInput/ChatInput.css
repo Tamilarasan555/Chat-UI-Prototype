@@ -1,14 +1,14 @@
 .chat-input-container {
   display: flex;
   align-items: center;
-  background-color: #ffffff;
-  border-radius: 30px; /* Increased roundness */
-  padding: 5px 10px 5px 15px; /* Adjusted padding: top/bottom left right */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Adjusted shadow */
-  width: auto; /* Allow content to influence width */
-  max-width: 550px; /* Set a fixed max-width closer to reference */
+  background-color: #ffffff; /* White background */
+  border-radius: 28px; /* Highly rounded corners for pill shape */
+  padding: 8px 12px; /* Padding around the elements */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  width: 100%; /* Take available width */
+  max-width: 700px; /* Adjust max-width as needed */
   margin: 20px auto;
-  gap: 10px; /* Adjusted gap */
+  gap: 8px; /* Space between elements */
 }
 
 .chat-input-field {
@@ -16,30 +16,24 @@
   border: none;
   outline: none;
   font-size: 0.95rem; /* Slightly smaller font */
-  background-color: transparent;
-  min-width: 100px;
-  padding: 8px 0; /* Vertical padding for input */
+  background-color: transparent; /* No background for input */
+  min-width: 150px; /* Ensure it doesn't collapse too much */
+  padding: 8px 5px; /* Padding inside the input */
   color: #333;
 }
 
 .chat-input-field::placeholder {
-  color: #999; /* Slightly darker placeholder */
+  color: #888; /* Placeholder text color */
 }
 
-.chat-input-buttons {
-  display: flex;
-  align-items: center;
-  gap: 6px; /* Adjusted gap */
-  border-left: none; /* Removed separator line */
-  padding-left: 0;
-}
+/* Removed unused .chat-input-buttons class */
 
 .chat-button {
-  background-color: #f1f1f1; /* Slightly lighter grey */
+  background-color: #f0f0f0; /* Light grey background for buttons */
   border: none; /* Removed border */
   border-radius: 20px; /* Pill shape */
   padding: 6px 12px; /* Adjusted padding */
-  cursor: pointer;
+  cursor: pointer; /* Indicate interactivity */
   display: flex;
   align-items: center;
   gap: 5px;
@@ -49,13 +43,17 @@
   white-space: nowrap; /* Prevent text wrapping */
 }
 
-.chat-button:hover {
-  background-color: #e7e7e7; /* Slightly darker hover */
+.chat-button:hover:not(:disabled) {
+  background-color: #e0e0e0; /* Darker grey on hover */
 }
 
-/* Specific styles for '+' and '...' buttons */
-.chat-button.icon-button.plus-button,
-.chat-button.icon-button.more-button {
+.chat-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Specific styles for circular icon buttons ('+', '...') */
+.chat-button.icon-button {
   border-radius: 50%; /* Circular */
   width: 28px; /* Fixed size */
   height: 28px; /* Fixed size */
@@ -64,10 +62,15 @@
   font-size: 1.1rem; /* Adjust icon size if needed */
 }
 
+/* Specific styles for text buttons ('Search', 'Reason') */
+.chat-button.text-button {
+  /* Base .chat-button styles are mostly sufficient */
+  padding: 6px 10px; /* Slightly adjust padding if needed */
+}
+
 .mic-button {
-  background-color: #000000;
+  background-color: #000000; /* Black background */
   color: #ffffff;
-  border: none;
   border-radius: 50%;
   width: 32px; /* Slightly larger */
   height: 32px; /* Slightly larger */
@@ -75,12 +78,10 @@
   align-items: center;
   justify-content: center;
   padding: 0;
-  margin-left: 8px; /* Adjusted margin */
-  cursor: pointer;
   transition: background-color 0.2s ease;
 }
 
-.mic-button:hover {
+.mic-button:hover:not(:disabled) {
   background-color: #333;
 }
 
@@ -95,3 +96,5 @@
 .chat-button > span:first-child {
   font-size: 1rem; /* Adjust icon size */
 }
+
+/* Removed Chat History and Message Styling as they belong elsewhere */
